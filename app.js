@@ -14,9 +14,9 @@ words.appendChild(p);
 recognition.addEventListener("result", e => {
     console.log(e.results);
     const transcript = Array.from(e.results)
-        .map(result => result[0]) 
-        .map(result => result.transcript)  // map over transcript to return result
-        .join('');
+    .map(result => result[0])
+    .map(result => result.transcript)
+    .join("");
 
     p.textContent = transcript;
 
@@ -32,5 +32,6 @@ recognition.addEventListener("result", e => {
     console.log(transcript);
 });
 
+recognition.addEventListener("end", recognition.start);
 // initialize microphone access to build transcript
 recognition.start();
