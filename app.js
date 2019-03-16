@@ -12,7 +12,6 @@ const words = document.querySelector(".words");
 words.appendChild(p);
 
 recognition.addEventListener("result", e => {
-    console.log(e.results);
     const transcript = Array.from(e.results)
     .map(result => result[0])
     .map(result => result.transcript)
@@ -23,10 +22,6 @@ recognition.addEventListener("result", e => {
     if (e.results[0].isFinal) {
         p = document.createElement("p");
         words.appendChild(p);
-    }
-
-    if (transcript.includes("unicorn")) {
-        console.log("hihihi")
     }
 
     console.log(transcript);
